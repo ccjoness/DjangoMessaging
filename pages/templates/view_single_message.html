@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>view_single_message</title>
+</head>
+<body>
+From: {{ message.sender.username }}
+<br>
+Project Title: {{ message.project.title }}
+<br>
+Request to join: {{ message.return_cast_or_crew.title }}
+<br>
+Message:
+<br>
+{{ message.body }}
+</body>
+</html>

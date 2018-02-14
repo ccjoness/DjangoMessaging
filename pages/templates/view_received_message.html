@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Messages</title>
+</head>
+<body>
+<ul>
+    New Messages: <br>
+    {% for new in user.received_messages.all %}
+
+        {% if not new.read %}
+            <li><a href="{% url 'view_single_message' new.id %}">{{ new.sender.username }} for {{ new.project.title }}
+                as {{ new.return_cast_or_crew.title }}</a></li>
+        {% endif %}
+    {% endfor %}
+
+    Read Messages: <br>
+    {% for new in user.received_messages.all %}
+
+        {% if new.read %}
+            <li><a href="{% url 'view_single_message' new.id %}">{{ new.sender.username }} for {{ new.project.title }}
+                as {{ new.return_cast_or_crew.title }}</a></li>
+        {% endif %}
+    {% endfor %}
+</ul>
+</body>
+</html>
